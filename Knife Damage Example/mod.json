@@ -1,0 +1,11 @@
+{
+  "Id": "Knife_Damage_Example",
+  "DisplayName": "Knife Damage Example",
+  "Author": "GreaterDane42 / Oli Ollerenshaw",
+  "Version": "1.0.0",
+  "Enable": true,
+  "AssemblyName": "Knife Damage Example.dll",
+  "VersionDependencies": {
+  },
+  "Game": "Subnautica"
+}
