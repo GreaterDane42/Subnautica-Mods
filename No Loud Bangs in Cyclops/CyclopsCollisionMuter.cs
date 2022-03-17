@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics;
+using HarmonyLib;
 using UnityEngine;
 using Logger = QModManager.Utility.Logger;
 using QModServices = QModManager.API.QModServices;
@@ -13,11 +14,12 @@ namespace No_Loud_Bangs_in_Cyclops
         public static bool Prefix(Collision col)
         {
             bool playSound;
-            string logMessage = $"{col.gameObject.name} ({col.gameObject.tag}) collided with cyclops.";
+            
 
             if (col.gameObject.name == terrainObjectName)
             {
                 playSound = true;
+                DebugLog($"{col.gameObject.name} ({col.gameObject.tag}) collided with cyclops. Continue to OnCollisionEnter.");
             }
             else
             {
@@ -35,35 +37,40 @@ namespace No_Loud_Bangs_in_Cyclops
                 if (liveMixin == null)
                 {
                     playSound = true;
-                    logMessage += " No LiveMixin.";
+                    DebugLog($"{col.gameObject.name} ({col.gameObject.tag}) collided with cyclops. No LiveMixin. Continue to OnCollisionEnter.");
                 }
                 else
                 { 
-                    // Only play the cyclops' metal hull impact sound if the object has a mass larger
+                    // Only play the cyclops' metal hull impact sound if the object has a mass greater
                     // than the heaviest small fish.
                     //
                     Rigidbody rigidbody = Utils.FindAncestorWithComponent<Rigidbody>(col.gameObject);
                     if (rigidbody == null)
                     {
                         playSound = true;
-                        logMessage += " No rigid body!";
+                        DebugLog($"{col.gameObject.name} ({col.gameObject.tag}) collided with cyclops. No rigid body! Continue to OnCollisionEnter.");
                     }
                     else
                     {
                         playSound = (rigidbody.mass > spadefishMassVanilla);
-                        logMessage += $" Mass {rigidbody.mass} (min {spadefishMassVanilla}).";
+                        DebugLog($"{col.gameObject.name} ({col.gameObject.tag}) collided with cyclops. Mass {rigidbody.mass} (min {spadefishMassVanilla}). Cancelling sound: {!playSound}");
                     }
                 }
             }
 
-            logMessage += playSound ? " Continue." : " Cancelling sound!";
-            QModServices.Main.AddCriticalMessage(logMessage);
-            Logger.Log(Logger.Level.Info, logMessage);
-
             return playSound;
         }
 
-        private readonly static string terrainObjectName = "override collider";
-        private readonly static int spadefishMassVanilla = 35; // heaviest small fish
+
+        [Conditional("DEBUG")]
+        private static void DebugLog(string message)
+        {
+            QModServices.Main.AddCriticalMessage(message);
+            Logger.Log(Logger.Level.Info, message);
+        }
+
+
+        private const string terrainObjectName = "override collider";
+        private const int spadefishMassVanilla = 35; // heaviest small fish
     }
 }
