@@ -1,0 +1,11 @@
+{
+  "Id": "Scan_for_More",
+  "DisplayName": "Scan for More",
+  "Author": "GreaterDane42",
+  "Version": "1.0.0",
+  "Enable": true,
+  "AssemblyName": "Scan for More.dll",
+  "VersionDependencies": {
+  },
+  "Game": "Subnautica"
+}
