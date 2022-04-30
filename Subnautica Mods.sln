@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knife Damage Example", "Kni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scan for More", "Scan for More\Scan for More.csproj", "{B3670136-477C-470A-BBFA-2A529EC0C618}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprints Improved UI", "Blueprints Improved UI\Blueprints Improved UI.csproj", "{D23394C8-8BC1-40E0-9798-59602D452127}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B3670136-477C-470A-BBFA-2A529EC0C618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3670136-477C-470A-BBFA-2A529EC0C618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3670136-477C-470A-BBFA-2A529EC0C618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D23394C8-8BC1-40E0-9798-59602D452127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23394C8-8BC1-40E0-9798-59602D452127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23394C8-8BC1-40E0-9798-59602D452127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23394C8-8BC1-40E0-9798-59602D452127}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

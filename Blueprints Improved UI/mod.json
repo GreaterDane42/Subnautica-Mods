@@ -1,0 +1,11 @@
+{
+  "Id": "Blueprints_Improved_UI",
+  "DisplayName": "Blueprints Improved UI",
+  "Author": "GreaterDane42",
+  "Version": "1.0.0",
+  "Enable": true,
+  "AssemblyName": "Blueprints Improved UI.dll",
+  "VersionDependencies": {
+  },
+  "Game": "Subnautica"
+}
