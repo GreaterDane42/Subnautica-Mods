@@ -7,30 +7,31 @@ using QModServices = QModManager.API.QModServices;
 namespace Scan_for_More
 {
     [HarmonyPatch(typeof(LiveMixin))]
-    class SeaCrownPatch
+    class LiveMixinTracker
     {
-        // TODO: Only enable after TechType.HatchingEnzymes is unlocked?
-
         [HarmonyPostfix]
         [HarmonyPatch(nameof(LiveMixin.Awake))]
         public static void Awake_Postfix(LiveMixin __instance)
         {
-            if (__instance.name == "Coral_reef_sea_crown(Clone)")
+            TechType techType = CraftData.GetTechType(__instance.gameObject);
+
+            if (Main.Config.LiveMixins.Contains(techType))
             {
                 var resourceTracker = __instance.gameObject.EnsureComponent<ResourceTracker>();
 
                 if (resourceTracker != null)
                 {
                     resourceTracker.prefabIdentifier = __instance.GetComponent<PrefabIdentifier>();
-                    resourceTracker.techType = TechType.SeaCrown;
-                    resourceTracker.overrideTechType = TechType.SeaCrown;
+                    resourceTracker.techType = techType;
+                    resourceTracker.overrideTechType = techType;
                     resourceTracker.rb = __instance.gameObject.GetComponent<Rigidbody>();
+                    resourceTracker.pickupable = __instance.gameObject.GetComponent<Pickupable>();
 
-                    DebugLog("Tracking sea crown");
+                    DebugLog("Tracking " + techType);
                 }
                 else
                 {
-                    DebugLog("Failed to track sea crown: could not create ResourceTracker!");
+                    DebugLog("Failed to track " + techType + ": could not create ResourceTracker!");
                 }
             }
         }
@@ -38,16 +39,18 @@ namespace Scan_for_More
         [HarmonyPostfix]
         [HarmonyPatch(nameof(LiveMixin.Kill))]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Hook must match arguments.")]
-        public static void OnDestroy_Postfix(LiveMixin __instance, DamageType damageType)
+        public static void Kill_Postfix(LiveMixin __instance, DamageType damageType)
         {
-            if (__instance.name == "Coral_reef_sea_crown(Clone)")
+            TechType techType = CraftData.GetTechType(__instance.gameObject);
+
+            if (Main.Config.LiveMixins.Contains(techType))
             {
                 var resourceTracker = __instance.gameObject.GetComponent<ResourceTracker>();
                 if (resourceTracker != null)
                 {
                     resourceTracker.Unregister();
 
-                    DebugLog("Untracking sea crown");
+                    DebugLog("Untracking " + techType);
                 }
             }
         }

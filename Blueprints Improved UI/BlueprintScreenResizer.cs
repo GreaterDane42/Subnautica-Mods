@@ -35,3 +35,7 @@ namespace Blueprints_Improved_UI
         }
     }
 }
+
+// TODO: Add search bar (in a new class)
+//uGUI_SignInput / uGUI_InputGroup
+//signInput.Select(true)
