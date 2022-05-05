@@ -67,11 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FragmentTracker.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LiveMixinTracker.cs" />
-    <Compile Include="SeaEmperorBabyPatch.cs" />
-    <Compile Include="SeaEmperorJuvenilePatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="mod.json" />

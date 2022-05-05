@@ -29,10 +29,6 @@ namespace Scan_for_More
 
                     DebugLog("Tracking " + techType);
                 }
-                else
-                {
-                    DebugLog("Failed to track " + techType + ": could not create ResourceTracker!");
-                }
             }
         }
 
