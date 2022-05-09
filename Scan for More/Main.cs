@@ -8,7 +8,7 @@ using QModManager.API.ModLoading;
 using Logger = QModManager.Utility.Logger;
 using QModServices = QModManager.API.QModServices;
 
-namespace Scan_for_More
+namespace Scan_for_Everything
 {
     [QModCore]
     public class Main

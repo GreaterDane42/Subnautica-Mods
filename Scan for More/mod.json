@@ -1,10 +1,10 @@
 {
-  "Id": "Scan_for_More",
-  "DisplayName": "Scan for More",
+  "Id": "Scan_for_Everything",
+  "DisplayName": "Scan for Everything",
   "Author": "GreaterDane42",
   "Version": "1.0.0",
   "Enable": true,
-  "AssemblyName": "Scan for More.dll",
+  "AssemblyName": "Scan for Everything.dll",
   "VersionDependencies": {
   },
   "Game": "Subnautica"

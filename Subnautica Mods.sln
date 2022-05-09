@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "No Loud Bangs in Cyclops", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knife Damage Example", "Knife Damage Example\Knife Damage Example.csproj", "{AA987C64-9DCF-486B-AD0F-299074C90DF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scan for More", "Scan for More\Scan for More.csproj", "{B3670136-477C-470A-BBFA-2A529EC0C618}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scan for Everything", "Scan for More\Scan for Everything.csproj", "{B3670136-477C-470A-BBFA-2A529EC0C618}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprints Improved UI", "Blueprints Improved UI\Blueprints Improved UI.csproj", "{D23394C8-8BC1-40E0-9798-59602D452127}"
 EndProject

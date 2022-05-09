@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace Scan_for_More
+namespace Scan_for_Everything
 {
     [HarmonyPatch]
     class FragmentTracker
