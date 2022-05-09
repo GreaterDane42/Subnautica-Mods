@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "No Loud Bangs in Cyclops", "No Loud Bangs in Cyclops\No Loud Bangs in Cyclops.csproj", "{B239F3F2-248C-441B-A4CC-9CEF7DF22C16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knife Damage Example", "Knife Damage Example\Knife Damage Example.csproj", "{AA987C64-9DCF-486B-AD0F-299074C90DF0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scan for Everything", "Scan for More\Scan for Everything.csproj", "{B3670136-477C-470A-BBFA-2A529EC0C618}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprints Improved UI", "Blueprints Improved UI\Blueprints Improved UI.csproj", "{D23394C8-8BC1-40E0-9798-59602D452127}"
@@ -21,10 +19,6 @@ Global
 		{B239F3F2-248C-441B-A4CC-9CEF7DF22C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B239F3F2-248C-441B-A4CC-9CEF7DF22C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B239F3F2-248C-441B-A4CC-9CEF7DF22C16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA987C64-9DCF-486B-AD0F-299074C90DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA987C64-9DCF-486B-AD0F-299074C90DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA987C64-9DCF-486B-AD0F-299074C90DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA987C64-9DCF-486B-AD0F-299074C90DF0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B3670136-477C-470A-BBFA-2A529EC0C618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B3670136-477C-470A-BBFA-2A529EC0C618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3670136-477C-470A-BBFA-2A529EC0C618}.Release|Any CPU.ActiveCfg = Release|Any CPU
