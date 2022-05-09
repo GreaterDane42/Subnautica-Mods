@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Collections.Generic;
 using HarmonyLib;
 using UnityEngine;
 using Logger = QModManager.Utility.Logger;
@@ -15,20 +16,49 @@ namespace Scan_for_More
         {
             TechType techType = CraftData.GetTechType(__instance.gameObject);
 
-            if (Main.Config.LiveMixins.Contains(techType))
+            if (ShouldTrack(__instance, techType))
             {
                 var resourceTracker = __instance.gameObject.EnsureComponent<ResourceTracker>();
 
                 if (resourceTracker != null)
                 {
-                    resourceTracker.prefabIdentifier = __instance.GetComponent<PrefabIdentifier>();
                     resourceTracker.techType = techType;
                     resourceTracker.overrideTechType = techType;
-                    resourceTracker.rb = __instance.gameObject.GetComponent<Rigidbody>();
+                    resourceTracker.prefabIdentifier = __instance.GetComponent<PrefabIdentifier>();
                     resourceTracker.pickupable = __instance.gameObject.GetComponent<Pickupable>();
+                    resourceTracker.rb = __instance.gameObject.GetComponent<Rigidbody>();
 
-                    DebugLog("Tracking " + techType);
+                    Main.DebugMessage("Tracking " + techType);
                 }
+            }
+        }
+
+        private static bool ShouldTrack(LiveMixin __instance, TechType techType)
+        {
+            if (techType == TechType.None)
+            {
+                return false;
+            }
+
+            if (Main.Config.trackEverythingWithHealth)
+            {
+                bool isPlayerCreated = (__instance.GetComponent<EnergyMixin>() != null
+                    || __instance.GetComponent<Constructable>() != null);
+                bool isSchool = (__instance.GetComponentInChildren<VFXSchoolFish>() != null);
+                bool isEgg = (__instance.GetComponent<CreatureEgg>() != null);
+
+                if (isPlayerCreated || isSchool || isEgg)
+                {
+                    return Main.Config.track.Contains(techType);
+                }
+                else
+                {
+                    return !Main.Config.exclude.Contains(techType);
+                }
+            }
+            else
+            {
+                return Main.Config.track.Contains(techType);
             }
         }
 
@@ -37,25 +67,13 @@ namespace Scan_for_More
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Hook must match arguments.")]
         public static void Kill_Postfix(LiveMixin __instance, DamageType damageType)
         {
-            TechType techType = CraftData.GetTechType(__instance.gameObject);
-
-            if (Main.Config.LiveMixins.Contains(techType))
+            var resourceTracker = __instance.gameObject.GetComponent<ResourceTracker>();
+            if (resourceTracker != null)
             {
-                var resourceTracker = __instance.gameObject.GetComponent<ResourceTracker>();
-                if (resourceTracker != null)
-                {
-                    resourceTracker.Unregister();
+                resourceTracker.Unregister();
 
-                    DebugLog("Untracking " + techType);
-                }
+                Main.DebugMessage("Untracking " + __instance.name);
             }
-        }
-
-        [Conditional("DEBUG")]
-        private static void DebugLog(string message)
-        {
-            QModServices.Main.AddCriticalMessage(message);
-            Logger.Log(Logger.Level.Info, message);
         }
     }
 }

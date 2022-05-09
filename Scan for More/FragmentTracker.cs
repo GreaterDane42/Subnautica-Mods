@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
+﻿
 using HarmonyLib;
 using UnityEngine;
-using Logger = QModManager.Utility.Logger;
-using QModServices = QModManager.API.QModServices;
 
 namespace Scan_for_More
 {
@@ -15,8 +13,51 @@ namespace Scan_for_More
         {
             if (__instance.techType == TechType.Fragment)
             {
-                __instance.Register();
+                if (ShouldTrack(__instance))
+                {
+                    __instance.Register();
+
+                    Main.DebugMessage("Tracking " + __instance.name);
+                }
             }
+        }
+
+        private static bool ShouldTrack(ResourceTracker __instance)
+        {
+            if (Main.Config.trackAllFragments && Main.Config.exclude.Count == 0)
+            {
+                return true;
+            }
+
+            TechType techType = GetSpecificTechType(__instance);
+
+            if (Main.Config.trackAllFragments)
+            {
+                return !Main.Config.exclude.Contains(techType);
+            }
+            else
+            {
+                return Main.Config.track.Contains(techType);
+            }
+        }
+
+        private static TechType GetSpecificTechType(ResourceTracker __instance)
+        {
+            TechType specificTechType = TechType.Fragment;
+            var pickupable = __instance.GetComponent<Pickupable>();
+            if (pickupable != null)
+            {
+                specificTechType = pickupable.GetTechType();
+            }
+            else
+            {
+                var techTag = __instance.GetComponent<TechTag>();
+                if (techTag != null)
+                {
+                    specificTechType = techTag.type;
+                }
+            }
+            return specificTechType;
         }
     }
 }
