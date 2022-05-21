@@ -5,7 +5,7 @@ using UnityEngine;
 using Logger = QModManager.Utility.Logger;
 using QModServices = QModManager.API.QModServices;
 
-namespace Scan_for_Everything
+namespace Scan_for_Anything
 {
     [HarmonyPatch(typeof(LiveMixin))]
     class LiveMixinTracker

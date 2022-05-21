@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "No Loud Bangs in Cyclops", "No Loud Bangs in Cyclops\No Loud Bangs in Cyclops.csproj", "{B239F3F2-248C-441B-A4CC-9CEF7DF22C16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scan for Everything", "Scan for More\Scan for Everything.csproj", "{B3670136-477C-470A-BBFA-2A529EC0C618}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scan for Anything", "Scan for More\Scan for Anything.csproj", "{B3670136-477C-470A-BBFA-2A529EC0C618}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprints Improved UI", "Blueprints Improved UI\Blueprints Improved UI.csproj", "{D23394C8-8BC1-40E0-9798-59602D452127}"
 EndProject
