@@ -50,7 +50,7 @@ namespace Scan_for_Anything
     public class ConfigFields : ConfigFile
     {
         public bool trackAllFragments = true;
-        public bool trackEverythingWithHealth = false;
+        public bool trackAllLife = false;
         public List<TechType> track = new List<TechType>();
         public List<TechType> exclude = new List<TechType>();
         //public Dictionary<TechType, List<TechType>> groups = new Dictionary<TechType, List<TechType>>();

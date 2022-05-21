@@ -40,7 +40,7 @@ namespace Scan_for_Anything
                 return false;
             }
 
-            if (Main.Config.trackEverythingWithHealth)
+            if (Main.Config.trackAllLife)
             {
                 bool isPlayerCreated = (__instance.GetComponent<EnergyMixin>() != null
                     || __instance.GetComponent<Constructable>() != null);
