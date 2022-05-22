@@ -1,5 +1,7 @@
 # Blueprints Improved UI #
 
+![screenshot](Nexus%20image.jpg)
+
 Less scrolling and more blueprints!
 
 Condenses recipe icons to the size of 1x1 inventory icons.
