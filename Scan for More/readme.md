@@ -2,7 +2,7 @@
 
 ![screenshot](Nexus%20image.jpg)
 
-Make scanner rooms track anything you want.
+Make scanner rooms track anything* you want.
 
 ## Configuration ##
 
@@ -45,8 +45,12 @@ Don't forget to put "quotes" around the text when adding to the configuration fi
 
 ## Limitations! ##
 
-Only blueprint fragments and objects with health can be added to the scanner room. This covers all creatures, plants, and resources, so I don't envision allowing much more.
+*Only blueprint fragments and objects with health can be added to the scanner room. This covers all creatures, plants, and resources, so I don't envision allowing much more.
 
 Fragments are all grouped together in the scanner room menu, _not_ seperated by blueprint. Additionally, fragments that you already learned are still tracked. I might change this, but I might not. It keeps a sense of the unknown in your Subnautica exploration.
 
 If you track specific creature eggs, some may still show under the general "Creature Eggs" entry. I'm not sure why, and I don't care enough to find out.
+
+## Changelog  
+### 1.0.1  
+* Fixes overwriting `config.json`
