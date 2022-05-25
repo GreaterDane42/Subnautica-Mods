@@ -25,19 +25,19 @@ namespace Scan_for_Anything
             {
                 Logger.Log(Logger.Level.Info, $"Loading {modName} configuration");
                 Config.Load();
+                Logger.Log(Logger.Level.Info, $"Loaded {modName} configuration!");
             }
             else
             {
                 Config.InitDefaults();
+                Config.Save();
+                Logger.Log(Logger.Level.Info, $"Created {modName} configuration");
             }
 
             Logger.Log(Logger.Level.Info, $"Patching {modName}");
             Harmony.CreateAndPatchAll(assembly, modName);
 
             Logger.Log(Logger.Level.Info, "Patched successfully!");
-
-            Config.Save();
-            Logger.Log(Logger.Level.Info, $"Saved {modName} configuration");
         }
 
         [Conditional("DEBUG")]
@@ -53,14 +53,13 @@ namespace Scan_for_Anything
         public bool trackAllLife = false;
         public List<TechType> track = new List<TechType>();
         public List<TechType> exclude = new List<TechType>();
-        //public Dictionary<TechType, List<TechType>> groups = new Dictionary<TechType, List<TechType>>();
+        //public Dictionary<TechType, List<TechType>> groups = new Dictionary<TechType, List<TechType>>(); // If people want to group different things together into one scanner room entry.
 
         public void InitDefaults()
         {
             track.Add(TechType.PurpleBrainCoral);
             track.Add(TechType.Bladderfish);
             track.Add(TechType.Peeper);
-            track.Add(TechType.SeaCrown);
         }
     }
 }
