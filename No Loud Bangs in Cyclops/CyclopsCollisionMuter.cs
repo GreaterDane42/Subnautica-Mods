@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics;
 using HarmonyLib;
 using UnityEngine;
-using Logger = QModManager.Utility.Logger;
-using QModServices = QModManager.API.QModServices;
+using BepInEx.Logging;
 
 namespace No_Loud_Bangs_in_Cyclops
 {
@@ -65,8 +64,8 @@ namespace No_Loud_Bangs_in_Cyclops
         [Conditional("DEBUG")]
         private static void DebugLog(string message)
         {
-            QModServices.Main.AddCriticalMessage(message);
-            Logger.Log(Logger.Level.Info, message);
+            ErrorMessage.AddMessage(message);
+            Main.logger.LogDebug(message);
         }
 
 
