@@ -47,11 +47,16 @@ Don't forget to put "quotes" around the text when adding to the configuration fi
 
 ## Limitations! ##
 
-*Only blueprint fragments and objects with health can be added to the scanner room. This covers all creatures, plants, and resources, so I don't envision allowing much more.
+*Only blueprint fragments and objects with health can be added to the scanner room. This covers all creatures, plants, and resources.
 
-Fragments are all grouped together in the scanner room menu, _not_ seperated by blueprint. Additionally, fragments that you already learned are still tracked. I might change this, but I might not. It keeps a sense of the unknown in your Subnautica exploration.
+Fragments are all grouped together in the scanner room menu, _not_ seperated by blueprint. Additionally, fragments that you already learned are still tracked. It keeps a sense of the unknown in your Subnautica exploration.
 
-If you track specific creature eggs, some may still show under the general "Creature Eggs" entry. I'm not sure why, and I don't care enough to find out.
+If you track specific creature eggs, some may still show under the general "Creature Eggs" entry.
+
+## Recommended Mods ##
+
+### [More Resources Discovery (by Scanner Room)](https://www.nexusmods.com/subnautica/mods/406) ###
+Shows objects at the farthest ranges of your scanner room without requiring you to travel a wide circle around it. Normally, the scanner room only detects objects in areas you've visited since loading the game. This mod loads areas around the scanner room automatically over time.
 
 ## Changelog
 ### 1.0.2
