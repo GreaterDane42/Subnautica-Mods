@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using HarmonyLib;
 using UnityEngine;
-using Logger = QModManager.Utility.Logger;
-using QModServices = QModManager.API.QModServices;
 
 namespace Scan_for_Anything
 {

@@ -1,49 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using BepInEx;
+using BepInEx.Logging;
+using SMLHelper.V2.Json;
+using HarmonyLib;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using SMLHelper.V2.Json;
-using HarmonyLib;
-using QModManager.API.ModLoading;
-using Logger = QModManager.Utility.Logger;
-using QModServices = QModManager.API.QModServices;
 
 namespace Scan_for_Anything
 {
-    [QModCore]
-    public class Main
+    [BepInPlugin(GUID, pluginName, version)]
+    public class Main : BaseUnityPlugin
     {
-        internal static ConfigFields Config { get; } = new ConfigFields();
+        private const string GUID = "me.greaterdane.subnautica.mod.scanforanything";
+        private const string pluginName = "Scan for Anything";
+        private const string version = "1.1.0";
 
-        [QModPatch]
-        public static void Load()
+        internal static new ConfigFields Config { get; } = new ConfigFields();
+        private static readonly Harmony harmony = new Harmony(GUID);
+
+        public static ManualLogSource logger;
+
+        private void Awake()
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var modName = ($"GreaterDane42_{assembly.GetName().Name}");
-
             if (File.Exists(Config.JsonFilePath))
             {
-                Logger.Log(Logger.Level.Info, $"Loading {modName} configuration");
+                Logger.LogInfo($"Loading {pluginName} configuration");
                 Config.Load();
-                Logger.Log(Logger.Level.Info, $"Loaded {modName} configuration!");
+                Logger.LogInfo($"Loaded {pluginName} configuration!");
             }
             else
             {
                 Config.InitDefaults();
                 Config.Save();
-                Logger.Log(Logger.Level.Info, $"Created {modName} configuration");
+                Logger.LogInfo($"Created {pluginName} configuration");
             }
 
-            Logger.Log(Logger.Level.Info, $"Patching {modName}");
-            Harmony.CreateAndPatchAll(assembly, modName);
-
-            Logger.Log(Logger.Level.Info, "Patched successfully!");
+            harmony.PatchAll();
+            Logger.LogInfo(pluginName + " " + version + " " + "loaded.");
+            logger = Logger;
         }
 
         [Conditional("DEBUG")]
         public static void DebugMessage(string message)
         {
-            QModServices.Main.AddCriticalMessage(message);
+            ErrorMessage.AddMessage(message);
         }
     }
 

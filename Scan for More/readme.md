@@ -6,7 +6,9 @@ Make scanner rooms track anything* you want.
 
 ## Configuration ##
 
-Edit this mod's `config.json` to add objects to your scanner rooms. For example:
+To track more objects in the scanner room, edit this mod's configuration file at `<Subnautica install path>\BepInEx\config\Scan for Anything\config.json`
+
+For example:
 
 ```json
 {
@@ -35,13 +37,13 @@ Technically, it tracks all objects with health except fish schools, eggs, and ba
 Track specific objects by adding their `TechType` to this list.
 
 ### `exclude`  
-Only use if you want to track all life or fragments _except_ for a few. Add the exceptions' `TechType`s to this list.
+Use if you want to track all life or all fragments _except_ for a few. Add the exceptions' `TechType`s to this list.
 
-## TechType ##
+## TechTypes ##
 
-The TechType of an object is identical to its [Spawn ID](https://subnautica.fandom.com/wiki/Spawn_IDs_(Subnautica)#Raw_IDs_List).
+An object's `TechType` is identical to its [Spawn ID](https://subnautica.fandom.com/wiki/Spawn_IDs_(Subnautica)#Raw_IDs_List), which you can lookup online.
 
-Don't forget to put "quotes" around the text when adding to the configuration file, and a comma between each TechType.
+Don't forget to put "quotes" around the text when adding to the configuration file, and a comma between each `TechType`.
 
 ## Limitations! ##
 
@@ -51,6 +53,8 @@ Fragments are all grouped together in the scanner room menu, _not_ seperated by 
 
 If you track specific creature eggs, some may still show under the general "Creature Eggs" entry. I'm not sure why, and I don't care enough to find out.
 
-## Changelog  
+## Changelog
+### 1.0.2
+* Compatible with Subnautica's Living Large update
 ### 1.0.1  
 * Fixes overwriting `config.json`
