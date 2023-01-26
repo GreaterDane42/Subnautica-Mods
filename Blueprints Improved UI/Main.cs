@@ -1,23 +1,25 @@
-﻿using System.Reflection;
+﻿using BepInEx;
+using BepInEx.Logging;
 using HarmonyLib;
-using QModManager.API.ModLoading;
-using Logger = QModManager.Utility.Logger;
 
 namespace Blueprints_Improved_UI
 {
-    [QModCore]
-    public class Main
+    [BepInPlugin(GUID, pluginName, version)]
+    public class Main : BaseUnityPlugin
     {
-        [QModPatch]
-        public static void Load()
+        private const string GUID = "me.greaterdane.subnautica.mod.blueprintsimprovedui";
+        private const string pluginName = "Blueprints Improved UI";
+        private const string version = "1.0.2";
+
+        private static readonly Harmony harmony = new Harmony(GUID);
+
+        public static ManualLogSource logger;
+
+        private void Awake()
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var modName = ($"GreaterDane42_{assembly.GetName().Name}");
-
-            Logger.Log(Logger.Level.Info, $"Patching {modName}");
-            Harmony.CreateAndPatchAll(assembly, modName);
-
-            Logger.Log(Logger.Level.Info, "Patched successfully!");
+            harmony.PatchAll();
+            Logger.LogInfo(pluginName + " " + version + " " + "loaded.");
+            logger = Logger;
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using System.Diagnostics;
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
-using Logger = QModManager.Utility.Logger;
-using QModServices = QModManager.API.QModServices;
+using static VFXParticlesPool;
 
 namespace Blueprints_Improved_UI
 {
@@ -24,6 +22,7 @@ namespace Blueprints_Improved_UI
                 __instance.title.fontSize = smallerFontSize;
 
                 var verticalLayout = __instance.GetComponent<VerticalLayoutGroup>();
+                RectOffset formerPadding = verticalLayout.padding;
                 // Leave left-padding the same, otherwise the blueprint entries are justified further to the left than the group titles, which looks weird.
                 verticalLayout.padding.right = 0;
                 verticalLayout.padding.top = 0;
@@ -62,6 +61,37 @@ namespace Blueprints_Improved_UI
 
                 __instance.amount.fontSize = BlueprintEntryPatch.smallerFontSize;
                 __instance.amount.rectTransform.localPosition += new Vector3(4, yOffset, 0); // Also recenter x-axis
+            }
+        }
+    }
+
+
+    [HarmonyPatch]
+    class PinPatch
+    {
+        readonly static Vector3 scale = new Vector3(0.62f, 0.62f, 1f);
+        readonly static Vector2 offset = new Vector2(0.5f, -6f);
+
+        [HarmonyPatch(typeof(uGUI_BlueprintsTab), "UpdatePinHover")]
+        [HarmonyPostfix]
+        public static void UpdatePinHover(uGUI_BlueprintsTab __instance, uGUI_BlueprintEntry entry)
+        {
+            if (entry == null || entry.pin != null) return;
+
+            __instance.pinHover.localScale = scale;
+            __instance.pinHover.offsetMin += offset; // must add, the on-hover pin icon already changes with offset
+            __instance.pinHover.offsetMax += offset; //
+        }
+
+        [HarmonyPatch(typeof(uGUI_BlueprintsTab), "SetPin")]
+        [HarmonyPostfix]
+        public static void SetPin(uGUI_BlueprintEntry entry, bool state)
+        {
+            if (state)
+            {
+                entry.pin.localScale = scale;
+                entry.pin.offsetMin = offset;
+                entry.pin.offsetMax = offset;
             }
         }
     }
