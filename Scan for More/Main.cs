@@ -14,7 +14,7 @@ namespace Scan_for_Anything
     {
         private const string GUID = "me.greaterdane.subnautica.mod.scanforanything";
         private const string pluginName = "Scan for Anything";
-        private const string version = "1.0.2";
+        private const string version = "1.0.3";
 
         internal static new ConfigFields Config { get; } = new ConfigFields();
         private static readonly Harmony harmony = new Harmony(GUID);

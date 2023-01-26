@@ -9,7 +9,7 @@ namespace No_Loud_Bangs_in_Cyclops
     {
         private const string GUID = "me.greaterdane.subnautica.mod.noloudbangsincyclops";
         private const string pluginName = "No Loud Bangs in Cyclops";
-        private const string version = "1.1.0";
+        private const string version = "1.0.2";
 
         private static readonly Harmony harmony = new Harmony(GUID);
 

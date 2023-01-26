@@ -45,7 +45,7 @@
     <Reference Include="BepInEx">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Subnautica\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
-    <Reference Include="SMLHelper, Version=2.13.4.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SMLHelper, Version=2.15.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Subnautica\BepInEx\plugins\Modding Helper\SMLHelper.dll</HintPath>
     </Reference>
