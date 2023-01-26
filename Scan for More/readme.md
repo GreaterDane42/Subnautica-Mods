@@ -58,6 +58,9 @@ If you track specific creature eggs, some may still show under the general "Crea
 ### [More Resources Discovery (by Scanner Room)](https://www.nexusmods.com/subnautica/mods/406) ###
 Shows objects at the farthest ranges of your scanner room without requiring you to travel a wide circle around it. Normally, the scanner room only detects objects in areas you've visited since loading the game. This mod loads areas around the scanner room automatically over time.
 
+### [Dynamic Scanner Blips](https://www.nexusmods.com/subnautica/mods/1160) ###
+Makes scanner bullseyes smaller and more faded the farther away the objects are from you. These "bullseyes" are the circles shown in your mask when you have the scanner HUD chip equipped.
+
 ## Changelog
 ### 1.0.2
 * Compatible with Subnautica's Living Large update
