@@ -62,7 +62,9 @@ Shows objects at the farthest ranges of your scanner room without requiring you 
 Makes scanner bullseyes smaller and more faded the farther away the objects are from you. These "bullseyes" are the circles shown in your mask when you have the scanner HUD chip equipped.
 
 ## Changelog
+### 1.0.3
+* Fix references to Subnautica code from before Living Large
 ### 1.0.2
 * Compatible with Subnautica's Living Large update
 ### 1.0.1  
-* Fixes overwriting `config.json`
+* Fix overwriting `config.json`
