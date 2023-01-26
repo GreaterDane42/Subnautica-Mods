@@ -63,35 +63,35 @@ namespace Blueprints_Improved_UI
                 __instance.amount.rectTransform.localPosition += new Vector3(4, yOffset, 0); // Also recenter x-axis
             }
         }
-    }
 
 
-    [HarmonyPatch]
-    class PinPatch
-    {
-        readonly static Vector3 scale = new Vector3(0.62f, 0.62f, 1f);
-        readonly static Vector2 offset = new Vector2(0.5f, -6f);
-
-        [HarmonyPatch(typeof(uGUI_BlueprintsTab), "UpdatePinHover")]
-        [HarmonyPostfix]
-        public static void UpdatePinHover(uGUI_BlueprintsTab __instance, uGUI_BlueprintEntry entry)
+        [HarmonyPatch]
+        class PinPatch
         {
-            if (entry == null || entry.pin != null) return;
+            readonly static Vector3 scale = new Vector3(0.62f, 0.62f, 1f);
+            readonly static Vector2 offset = new Vector2(0.5f, -6f);
 
-            __instance.pinHover.localScale = scale;
-            __instance.pinHover.offsetMin += offset; // must add, the on-hover pin icon already changes with offset
-            __instance.pinHover.offsetMax += offset; //
-        }
-
-        [HarmonyPatch(typeof(uGUI_BlueprintsTab), "SetPin")]
-        [HarmonyPostfix]
-        public static void SetPin(uGUI_BlueprintEntry entry, bool state)
-        {
-            if (state)
+            [HarmonyPatch(typeof(uGUI_BlueprintsTab), "UpdatePinHover")]
+            [HarmonyPostfix]
+            public static void UpdatePinHover(uGUI_BlueprintsTab __instance, uGUI_BlueprintEntry entry)
             {
-                entry.pin.localScale = scale;
-                entry.pin.offsetMin = offset;
-                entry.pin.offsetMax = offset;
+                if (entry == null || entry.pin != null) return;
+
+                __instance.pinHover.localScale = scale;
+                __instance.pinHover.offsetMin += offset; // must add, the on-hover pin icon already changes with offset
+                __instance.pinHover.offsetMax += offset; //
+            }
+
+            [HarmonyPatch(typeof(uGUI_BlueprintsTab), "SetPin")]
+            [HarmonyPostfix]
+            public static void SetPin(uGUI_BlueprintEntry entry, bool state)
+            {
+                if (state)
+                {
+                    entry.pin.localScale = scale;
+                    entry.pin.offsetMin = offset;
+                    entry.pin.offsetMax = offset;
+                }
             }
         }
     }
