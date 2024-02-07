@@ -62,6 +62,9 @@ Shows objects at the farthest ranges of your scanner room without requiring you 
 Makes scanner bullseyes smaller and more faded the farther away the objects are from you. These "bullseyes" are the circles shown in your mask when you have the scanner HUD chip equipped.
 
 ## Changelog
+### 1.0.4
+* Use Nautilus instead of the deprecated SMLHelper.
+* `trackAllLife` no longer includes minor non-harvestable organisms from the mushroom forest or the obvious giant mushroom trees.
 ### 1.0.3
 * Fix references to Subnautica code from before Living Large
 ### 1.0.2
