@@ -45,7 +45,13 @@ namespace Scan_for_Anything
                 bool isSchool = (__instance.GetComponentInChildren<VFXSchoolFish>() != null);
                 bool isEgg = (__instance.GetComponent<CreatureEgg>() != null);
 
-                if (isPlayerCreated || isSchool || isEgg)
+                if (isPlayerCreated || isSchool || isEgg 
+                    || techType == TechType.TreeMushroom // mushroom forest stuff not worth tracking
+                    || techType == TechType.BallClusters //
+                    || techType == TechType.BarnacleSuckers
+                    || techType == TechType.BlueBarnacle
+                    || techType == TechType.BlueCluster
+                    || techType == TechType.BlueCoralTubes)
                 {
                     return Main.Config.track.Contains(techType);
                 }
