@@ -1,20 +1,20 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
-using SMLHelper.V2.Json;
+using Nautilus.Json;
 using HarmonyLib;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 
 namespace Scan_for_Anything
 {
     [BepInPlugin(GUID, pluginName, version)]
+    [BepInDependency("com.snmodding.nautilus")]
     public class Main : BaseUnityPlugin
     {
         private const string GUID = "me.greaterdane.subnautica.mod.scanforanything";
         private const string pluginName = "Scan for Anything";
-        private const string version = "1.0.3";
+        private const string version = "1.0.4";
 
         internal static new ConfigFields Config { get; } = new ConfigFields();
         private static readonly Harmony harmony = new Harmony(GUID);
